@@ -36,7 +36,7 @@
 
 ## How to Start
 - Clone the project in your system directory
-	+ Git clone https://github.com/HesamoddinMonfared/SimpleATM
+	+ Git clone https://github.com/EsmaeilChitgar/SimpleAtmEmulator
 - Go to atm-service directory and run the following command
 	+ docker build -t atm-service .
 - Go to bank-service directory and run the following command
