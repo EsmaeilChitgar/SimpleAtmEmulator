@@ -32,6 +32,7 @@
 - It is better to use common classes in one library and then share between services, but due to the small size of this project, I  have not do that.
 - Only Get and Post requests have been used.
 - Exception managing is done only in bank-service as example.
+- Download the latest release of zipkin-server from https://zipkin.io/pages/quickstart.html .
 
 ## How to Start
 - Clone the project in your system directory
@@ -47,6 +48,7 @@
 	+ docker build -t config-server .
 - Go to service-registry directory and run the following command
 	+ docker build -t service-registry .
+- Run zipkin-server jar file via java -jar [zipkin-server-name].jar
 - Go to project root directory and run the following command
 	+ docker compose up
 - Visit the bank-service swagger Api via pasting the following link into your browser
