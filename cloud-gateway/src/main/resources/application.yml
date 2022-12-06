@@ -1,0 +1,36 @@
+server:
+  port: 9191
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: BANK-SERVICE
+          uri: lb://BANK-SERVICE
+          predicates:
+            - Path=/api/V1/banks/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: bankCircuitBreaker
+                fallbackuri: forward:/bankServiceFallBack
+        - id: ATM-SERVICE
+          uri: lb://ATM-SERVICE
+          predicates:
+            - Path=/api/V1/atms/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: atmCircuitBreaker
+                fallbackuri: forward:/atmServiceFallBack
+
+
+
+resilience4j:
+  retry:
+    instances:
+      myRetry:
+        max-attempts: 3
+        wait-duration: 5
